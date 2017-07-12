@@ -26,7 +26,6 @@ class Bot:
             return title
 
     def send_message(self, title, content, url):
-        time.sleep(3);
         title = self.prettify_title(title)
         if self.content_length:
             content = content[:self.content_length] + '...' if len(content) > self.content_length else content
