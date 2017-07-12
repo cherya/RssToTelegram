@@ -1,0 +1,9 @@
+[Telegram]
+token = TOKEN_HERE
+channel = channel_OR_ID
+max_content_length = 300
+disable_web_page_preview = True
+
+[RSSFeed]
+URL = http://www.reddit.com/r/news/.rss
+update_timeout = 300
