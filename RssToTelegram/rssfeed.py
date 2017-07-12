@@ -28,26 +28,28 @@ def check_updates():
         print(last_id)
 
     theme_id = None
-    new_themes = []
+    new_topics = []
     for topic in feed.entries:
         theme_id = topic.id
         if topic.id == last_id or len(last_id) == 0:
             break
         else:
-            new_themes.append(topic)
+            new_topics.append(topic)
 
-    print('new themes:', new_themes)
+    print('new themes:', new_topics)
 
-    for topic in reversed(new_themes):
+    for topic in reversed(new_topics):
         theme_url = topic.link
         theme_title = topic.title
         theme_content = topic.description
+        last_id = topic.id
         bot.send_message(theme_title, theme_content, theme_url)
 
-    if theme_id is not None:
-        with open(last_id_file, 'w') as f:
-            f.write(feed.entries[0].id)
+    save_last_id(last_id_file, feed.entries[0].id)
 
+def save_last_id(file, iid):
+    with open(file, 'w') as f:
+            f.write(iid)
 
 def scheduled_update(sched):
     check_updates()

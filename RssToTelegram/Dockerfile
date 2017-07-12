@@ -1,3 +1,3 @@
 FROM python:onbuild
 
-ENTRYPOINT ["python", "-u", "rssfeed.py", "--ini", "my_config.ini"]
+ENTRYPOINT ["python", "-u", "rssfeed.py", "--ini", "config.ini"]
